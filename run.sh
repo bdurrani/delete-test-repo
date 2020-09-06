@@ -10,7 +10,7 @@ git add .
 git commit -m "change: ${current_time}" || true
 
 readonly HEAD_SHA=$(git rev-parse --short HEAD)
-# git tag "tag-${HEAD_SHA}"
+git tag "tag-${HEAD_SHA}"
 
 echo "Local change made. Wait for remote change"
 read year
@@ -20,4 +20,4 @@ echo "Pulling"
 git pull origin --no-edit 
 # git fetch origin
 # git merge origin -m "Merging changes"
-git push origin --tags
+git push origin master --tags
