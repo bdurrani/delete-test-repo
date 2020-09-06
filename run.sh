@@ -9,6 +9,9 @@ npm ci
 git add .
 git commit -m "change: ${current_time}" || true
 
+readonly HEAD_SHA=$(git rev-parse --short HEAD)
+git tag "tag-${HEAD_SHA}"
+
 echo "Local change made. Wait for remote change"
 read year
 # read -t 3 -n 1
