@@ -22,14 +22,14 @@ function is_pull_needed(){
     elif [ $REMOTE = $BASE ]; then
         echo "Need to push"
     else
-        echo "Diverged"
+        echo "Diverged, Need to pull"
     fi
 }
 
 current_time=$(date "+%Y.%m.%d-%H.%M.%S")
 # printf '%s\n\n' "$current_time" >> README.md
 npm version minor
-npm ci
+npm i --package-lock-only
 
 git add .
 git commit -m "change: ${current_time}" || true
