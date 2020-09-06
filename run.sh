@@ -7,7 +7,7 @@ npm version minor
 npm ci
 
 git add .
-git commit -m "change: ${current_time}"
+git commit -m "change: ${current_time}" || true
 
 echo "Local change made. Wait for remote change"
 read year
