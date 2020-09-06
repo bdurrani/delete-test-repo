@@ -1,6 +1,28 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+
+function detect_merge_conflict(){
+    git merge --ff-only
+}
+
+function is_pull_needed(){
+    local UPSTREAM=${1:-'@{u}'}
+    local LOCAL=$(git rev-parse @)
+    local REMOTE=$(git rev-parse "$UPSTREAM")
+    local BASE=$(git merge-base @ "$UPSTREAM")
+
+    if [ $LOCAL = $REMOTE ]; then
+        echo "Up-to-date"
+    elif [ $LOCAL = $BASE ]; then
+        echo "Need to pull"
+    elif [ $REMOTE = $BASE ]; then
+        echo "Need to push"
+    else
+        echo "Diverged"
+    fi
+}
+
 current_time=$(date "+%Y.%m.%d-%H.%M.%S")
 # printf '%s\n\n' "$current_time" >> README.md
 npm version minor
@@ -17,6 +39,9 @@ read year
 # read -t 3 -n 1
 
 echo "Pulling"
+
+is_pull_needed 
+
 git pull origin --no-edit 
 # git fetch origin
 # git merge origin -m "Merging changes"
