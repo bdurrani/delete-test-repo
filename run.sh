@@ -7,6 +7,9 @@ function detect_merge_conflict(){
 }
 
 function is_pull_needed(){
+
+    git remote update
+
     local UPSTREAM=${1:-'@{u}'}
     local LOCAL=$(git rev-parse @)
     local REMOTE=$(git rev-parse "$UPSTREAM")
