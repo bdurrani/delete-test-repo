@@ -20,7 +20,7 @@ echo "Pulling"
 git pull origin --no-edit 
 # git fetch origin
 # git merge origin -m "Merging changes"
-git push origin --tags 
+git push origin develop --tags 
 
 # merge to master
 echo "Merging develop to master"
