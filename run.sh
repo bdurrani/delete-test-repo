@@ -45,9 +45,9 @@ echo "Pulling"
 
 is_pull_needed 
 
-git pull origin --no-edit 
-# git fetch origin
-# git merge origin -m "Merging changes"
+# git pull origin --no-edit 
+git fetch origin
+git merge origin -m "Merging changes" --ff-only
 git push origin develop --tags 
 
 # merge to master
