@@ -20,4 +20,4 @@ echo "Pulling"
 git pull origin --no-edit 
 # git fetch origin
 # git merge origin -m "Merging changes"
-git push origin
+git push origin --tags
