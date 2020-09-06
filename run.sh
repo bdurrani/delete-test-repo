@@ -20,4 +20,17 @@ echo "Pulling"
 git pull origin --no-edit 
 # git fetch origin
 # git merge origin -m "Merging changes"
+git push origin --tags 
+
+# merge to master
+echo "Merging develop to master"
+git checkout master
+git pull origin master
+git merge develop
+
+# push to master
+echo "Pushing master"
 git push origin master --tags
+
+# switch back to develop
+git checkout develop
