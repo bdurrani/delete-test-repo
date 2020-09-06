@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -euo pipefail
 
 current_time=$(date "+%Y.%m.%d-%H.%M.%S")
 # printf '%s\n\n' "$current_time" >> README.md
