@@ -2,7 +2,7 @@
 set -euo pipefail
 
 current_time=$(date "+%Y.%m.%d-%H.%M.%S")
-printf '%s\n\n' "$current_time" >> README.md
+printf 'tweak %s\n\n' "$current_time" >> README.md
 git add .
 git commit -m "change: ${current_time}" || true
 
