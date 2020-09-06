@@ -14,7 +14,7 @@ read year
 # read -t 3 -n 1
 
 echo "Pulling"
-# git pull origin
-git fetch origin
-git merge origin -m "Merging changes"
+git pull origin --no-edit 
+# git fetch origin
+# git merge origin -m "Merging changes"
 git push origin
